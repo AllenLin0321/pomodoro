@@ -1,0 +1,11 @@
+@mixin HomeBlock($side) {
+    height: 100vh;
+    padding: 2rem 4rem;
+    @if ($side == "left") {
+        color: $color__indigo;
+        background-color: $color__pink--light;
+    } @else {
+        color: $color__white;
+        background-color: $color__indigo;
+    }
+}

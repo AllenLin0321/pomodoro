@@ -1,0 +1,12 @@
+.home {
+    padding: 0;
+
+    &__left {
+        // height: 100vh;
+        @include HomeBlock("left");
+    }
+
+    &__right {
+        @include HomeBlock("right");
+    }
+}

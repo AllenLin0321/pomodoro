@@ -1,0 +1,29 @@
+.navigation {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &__icon {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        align-content: space-between;
+
+        >i {
+            color: $color__white !important;
+            cursor: pointer;
+            
+            &:not(:first-child) {
+                margin-top: 3rem;
+            }
+        }
+
+    }
+
+    &__title {
+        align-self: flex-end;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        writing-mode: vertical-lr;
+    }
+}
