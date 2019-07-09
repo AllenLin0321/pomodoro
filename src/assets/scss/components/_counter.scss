@@ -1,0 +1,15 @@
+.counter {
+    position: relative;
+    &__circle {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        right: -213%;
+    }
+
+    & i {
+        color: $color__pink !important;
+        font-size: 10rem;
+        cursor: pointer;
+    }
+}

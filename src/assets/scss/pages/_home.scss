@@ -10,3 +10,22 @@
         @include HomeBlock("right");
     }
 }
+
+.currentList {
+    align-self: center;
+
+    // Hide the Start Button for the first To Do List
+    & .todolist__start {
+        display: none;
+    }
+
+    &__title {
+        border: none;
+        font-size: 1.2rem;
+    }
+
+    &__time {
+        font-size: 15rem;
+        color: $color__pink;
+    }
+}

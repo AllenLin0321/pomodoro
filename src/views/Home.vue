@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import HomeLeft from "../components/Home_Left";
-import HomeRight from "../components/Home_Right";
+import HomeLeft from "../components/Home/Home_Left";
+import HomeRight from "../components/Home/Home_Right";
 export default {
   components: {
     HomeLeft,
