@@ -4,13 +4,13 @@
       <v-layout justify-space-between column fill-height>
         <!-- Input a new mission -->
         <v-flex xs2>
-          <AddMission v-on:renewList="updateTodoList" />
+          <AddMission @updateTodoList="updateTodoList" />
         </v-flex>
 
         <!-- Current pomodoro -->
         <v-flex class="currentList">
-          <ToDoList :content="missions[0].content" class="currentList__title" />
-          <Counter />
+          <ToDoList :content="missions[0].content" class="currentList__title" index="0" />
+          <Counter/>
         </v-flex>
 
         <!-- pomodoro List -->
@@ -19,10 +19,10 @@
             v-for="(mission, index) in missions.slice(1,4)"
             :key="index"
             :content="mission.content"
-            :index="index"
+            :index="index+1"
             @changeOrder="changeOrder"
           />
-          <v-btn color="#FF4384" flat small outline v-if="showMore">More</v-btn>
+          <v-btn :color="color.dark" flat small outline v-if="showMore">More</v-btn>
         </v-flex>
       </v-layout>
     </v-flex>
@@ -42,7 +42,9 @@ export default {
     return {
       missions: [],
       // Check if To Do Lists's length is over 4
-      showMore: false
+      showMore: false,
+      isBreak: null,
+      color: null
     };
   },
   components: {
@@ -63,21 +65,24 @@ export default {
       );
 
       // If More than 3 Mission
-      if (non_finish_list.length > 4) {
+      if (allMission.length > 4) {
         this.showMore = true;
       }
       this.missions = non_finish_list;
     },
     changeOrder(order) {
-      
       // Change the order in Vuex
       this.$store.dispatch("change_order", order);
 
       // Re-render the page
       this.updateTodoList();
+    },
+    updateColor() {
+      this.color = this.getColor();
     }
   },
   created() {
+    this.updateColor();
     this.updateTodoList();
   }
 };

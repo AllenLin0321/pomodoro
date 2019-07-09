@@ -45,7 +45,7 @@ export default {
         this.input_content = "";
 
         // Re-render the page
-        this.$emit("renewList");
+        this.$emit("updateTodoList");
 
         // Show the snackBar
         this.showSnackbar("待辦事項新增成功");

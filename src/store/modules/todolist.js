@@ -15,7 +15,6 @@ const getters = {
   get_allMission: (state) => {
     return state.missions;
   }
-
 }
 
 // mutations
@@ -35,8 +34,7 @@ const actions = {
   change_order({
     state
   }, order) {
-    console.log(order);
-    [state.missions[0], state.missions[order + 1]] = [state.missions[order + 1], state.missions[0]];
+    [state.missions[0], state.missions[order]] = [state.missions[order], state.missions[0]];
   }
 }
 

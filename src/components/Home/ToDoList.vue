@@ -1,13 +1,13 @@
 <template>
   <div class="todolist">
     <!-- CheckBox -->
-    <div class="todolist__checkBox" @click="isCheck = !isCheck">
-      <v-icon v-if="isCheck">check_box_outline_blank</v-icon>
+    <div class="todolist__checkBox" @click="updateState">
+      <v-icon v-if="!isCheck.isFinish">check_box_outline_blank</v-icon>
       <v-icon v-else>check_box</v-icon>
     </div>
 
     <!-- Content -->
-    <div class="todolist__content" @click="isCheck = !isCheck" :class="{check: !isCheck}">
+    <div class="todolist__content" @click="updateState" :class="{check: isCheck.isFinish}">
       <h1>{{ content }}</h1>
     </div>
     <v-spacer></v-spacer>
@@ -24,14 +24,17 @@ export default {
   data() {
     return {
       isCheck: {
-        active: false,
+        isFinish: false,
         textDecoration: "line-through"
       }
     };
   },
   methods: {
+    updateState() {
+      this.isCheck.isFinish = !this.isCheck.isFinish;
+    },
     changeOrder() {
-      this.$emit('changeOrder',this.index);
+      this.$emit("changeOrder", this.index);
     }
   },
   props: ["content", "index"]
