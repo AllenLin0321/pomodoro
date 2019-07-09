@@ -10,7 +10,7 @@
         <!-- Current pomodoro -->
         <v-flex class="currentList">
           <ToDoList :content="missions[0].content" class="currentList__title" index="0" />
-          <Counter/>
+          <Counter @updateColor="updateColor" />
         </v-flex>
 
         <!-- pomodoro List -->
@@ -79,6 +79,7 @@ export default {
     },
     updateColor() {
       this.color = this.getColor();
+      this.$emit("updateColor");
     }
   },
   created() {

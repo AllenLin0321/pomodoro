@@ -15,7 +15,7 @@
     </div>
     <!-- Counter Text Part -->
     <div class="counter__text">
-      <h2 class="currentList__time" :color="color.dark">{{ getRemainTime }}</h2>
+      <h2 class="currentList__time" :style="{ color : color.dark}">{{ getRemainTime }}</h2>
       <v-btn color="warning" v-if="isCounting" @click="stopTimer">STOP</v-btn>
       <v-btn color="success" v-else @click="startTimer">START</v-btn>
       <v-btn color="info" @click="reSetTimer">Reset</v-btn>
@@ -60,10 +60,10 @@ export default {
       this.isBreak = this.$store.getters.isBreak;
       if (this.isBreak) {
         // 5 minutes break
-        this.setTimer(1 * 10);
+        this.setTimer(1 * 5);
       } else {
         // 25 minutes Focus
-        this.setTimer(1 * 10);
+        this.setTimer(1 * 5);
       }
       this.updateTimer();
       this.updateColor();
@@ -86,6 +86,7 @@ export default {
     },
     updateColor() {
       this.color = this.getColor();
+      this.$emit("updateColor");
     },
     countdown() {
       const vm = this;
