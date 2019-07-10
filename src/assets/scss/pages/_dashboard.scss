@@ -1,0 +1,11 @@
+.dashboard {
+    padding: 0;
+    height: 100vh;
+    background-color: $color__indigo;
+    color: white;
+
+    & div > .flex {
+        @include pageLayout()
+    }
+
+}

@@ -7,8 +7,9 @@
       autofocus
       placeholder="ADD A NEW MISSION..."
       @keypress.enter="add_mission"
+      :style="{ color : color.dark}"
     />
-    <v-icon class="input__action" large @click="add_mission">add</v-icon>
+    <v-icon class="input__action" large @click="add_mission" :color="color.dark">add</v-icon>
 
     <v-snackbar v-model="snackbar.show" :color="snackbar.color" :timeout="snackbar.timeout">
       {{ snackbar.text }}
@@ -20,6 +21,7 @@
 <script>
 import { truncate } from 'fs';
 export default {
+  props:['color'],
   data() {
     return {
       snackbar: {

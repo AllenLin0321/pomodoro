@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     updateColor() {
-      console.log(this.color);
       this.color = this.getColor();
     }
   },

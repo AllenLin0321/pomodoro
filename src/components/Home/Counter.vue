@@ -19,6 +19,7 @@
       <v-btn color="warning" v-if="isCounting" @click="stopTimer">STOP</v-btn>
       <v-btn color="success" v-else @click="startTimer">START</v-btn>
       <v-btn color="info" @click="reSetTimer">Reset</v-btn>
+      <v-btn color="error" @click="testModeOn">Test(5 sec)</v-btn>
     </div>
   </div>
 </template>
@@ -60,10 +61,10 @@ export default {
       this.isBreak = this.$store.getters.isBreak;
       if (this.isBreak) {
         // 5 minutes break
-        this.setTimer(1 * 5);
+        this.setTimer(5 * 60);
       } else {
         // 25 minutes Focus
-        this.setTimer(1 * 5);
+        this.setTimer(25 * 60);
       }
       this.updateTimer();
       this.updateColor();
@@ -112,6 +113,10 @@ export default {
     reSetTimer() {
       this.stopTimer();
       this.initTimer();
+    },
+    testModeOn() {
+      this.setTimer(1 * 5);
+      this.updateTimer();
     }
   },
   created() {

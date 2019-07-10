@@ -4,7 +4,7 @@
       <v-layout justify-space-between column fill-height>
         <!-- Input a new mission -->
         <v-flex xs2>
-          <AddMission @updateTodoList="updateTodoList" />
+          <AddMission @updateTodoList="updateTodoList" :color="color" />
         </v-flex>
 
         <!-- Current pomodoro -->

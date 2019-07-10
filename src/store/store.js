@@ -8,13 +8,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    isBreak: false
+    isBreak: false,
+    icons: {
+      todolist: "list",
+      analytics: "insert_chart",
+      ringtones: "library_music",
+      close: "close"
+    }
   },
   modules: {
     todolist
   },
   getters: {
-    isBreak: state => state.isBreak
+    isBreak: state => state.isBreak,
+    getIcons: state => state.icons
   },
   mutations: {
     CHANGE_BREAK(state) {

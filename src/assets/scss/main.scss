@@ -13,11 +13,17 @@
 // Input
 @import './components/input';
 
+// Dashboard Nav Bar
+@import './components/navbar';
+
 // todolist
 @import './components/todolist';
 
 // Navigation
 @import './layout/navigation';
+
+// Dashboard specific styles
+@import './pages/dashboard';
 
 // Home specific styles
 @import './pages/home';

@@ -6,7 +6,6 @@
         font-size: 1.8rem;
         font-weight: 500;
         background-color: $color__grey;
-        color: $color__pink;
         width: 100%;
         padding: 1.3rem 1.3rem 1.3rem 2rem;
 
@@ -18,7 +17,6 @@
 
     &__action {
         position: absolute;
-        color: $color__pink !important;
         right: 1rem;
         transform: translateY(30%);
         cursor: pointer;
