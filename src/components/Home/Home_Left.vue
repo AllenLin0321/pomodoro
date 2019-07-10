@@ -22,7 +22,14 @@
             :index="index+1"
             @changeOrder="changeOrder"
           />
-          <v-btn :color="color.dark" flat small outline v-if="showMore">More</v-btn>
+          <v-btn
+            :color="color.dark"
+            flat
+            small
+            outline
+            v-if="showMore"
+            @click="toPage(`/dashboard`)"
+          >More</v-btn>
         </v-flex>
       </v-layout>
     </v-flex>
@@ -80,6 +87,9 @@ export default {
     updateColor() {
       this.color = this.getColor();
       this.$emit("updateColor");
+    },
+    toPage(pageName) {
+      this.$router.push(pageName);
     }
   },
   created() {

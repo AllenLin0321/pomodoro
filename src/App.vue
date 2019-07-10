@@ -6,17 +6,11 @@
 
 <script>
 export default {
-  name: 'App',
-  data () {
-    return {
-      //
-    }
-  }
-}
+  name: "App"
+};
 </script>
 
 <style lang="scss">
-  @import './assets/scss/main';
-
+@import "./assets/scss/main";
 </style>
 

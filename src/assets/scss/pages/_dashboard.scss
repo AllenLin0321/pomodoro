@@ -8,4 +8,9 @@
         @include pageLayout()
     }
 
+    .navbar__item--active * {
+        color: $color__pink;
+        opacity: 1!important;
+    }
+
 }

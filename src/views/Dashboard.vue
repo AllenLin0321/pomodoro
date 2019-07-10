@@ -1,19 +1,20 @@
 <template>
   <v-container fluid class="dashboard">
     <v-layout align-start justify-space-between row fill-height>
-
       <!-- Nav Bar -->
-      <v-flex xs5 class="dashboard__navbar">
-        <Nav :icons="icons"/>
+      <v-flex xs4 class="dashboard__navbar">
+        <Nav :icons="icons" />
       </v-flex>
 
       <!-- Content -->
       <v-flex xs6 class="dashboard__content">
-        <router-view></router-view>
+        <transition enter-active-class="animated fadeIn fast">
+          <router-view></router-view>
+        </transition>
       </v-flex>
 
       <!-- Footer -->
-      <v-flex xs1 class="dashboard__footer">
+      <v-flex xs2 class="dashboard__footer">
         <nav class="navigation">
           <div class="navigation__icon">
             <v-icon medium @click="toPage(`/`)">{{icons.close}}</v-icon>

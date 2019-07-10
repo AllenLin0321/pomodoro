@@ -22,15 +22,24 @@ export default new Router({
       redirect: '/dashboard/todolist',
       children: [{
           path: 'todolist',
-          component: Todolist
+          component: Todolist,
+          meta: {
+            page: 'todolist'
+          }
         },
         {
           path: 'analytics',
-          component: Analytics
+          component: Analytics,
+          meta: {
+            page: 'analytics'
+          }
         },
         {
           path: 'ringtones',
-          component: Ringtones
+          component: Ringtones,
+          meta: {
+            page: 'ringtones'
+          }
         }
       ]
     }
