@@ -1,11 +1,18 @@
+
+/* ---------- abstracts -----------------*/
+
 // SCSS Variables
 @import './abstracts/variables';
 
 // SCSS Mixins
 @import './abstracts/mixins';
 
+/* ---------- base -----------------*/
+
 // Reset / normalize
 @import './base/reset';
+
+/* ---------- components -----------------*/
 
 // overall todolist
 @import './components/todolist';
@@ -22,8 +29,15 @@
 // Dashboard Nav Bar
 @import './components/dashboard/navbar';
 
+// analytics
+@import './components/dashboard/analytics/analytics';
+
+/* ---------- layout -----------------*/
+
 // Navigation
 @import './layout/navigation';
+
+/* ---------- pages -----------------*/
 
 // Dashboard specific styles
 @import './pages/dashboard';
