@@ -9,17 +9,16 @@
 
         <!-- Current pomodoro -->
         <v-flex class="currentList">
-          <ToDoList :content="missions[0].content" class="currentList__title" index="0" />
+          <ToDoList :list="nFinishList[0]" class="currentList__title" />
           <Counter @updateColor="updateColor" />
         </v-flex>
 
         <!-- pomodoro List -->
         <v-flex xs4>
           <ToDoList
-            v-for="(mission, index) in missions.slice(1,4)"
-            :key="index"
-            :content="mission.content"
-            :index="index+1"
+            v-for="mission in nFinishList.slice(1,4)"
+            :key="mission.index"
+            :list="mission"
             @changeOrder="changeOrder"
           />
           <v-btn
@@ -47,7 +46,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
-      missions: [],
+      nFinishList: [],
       // Check if To Do Lists's length is over 4
       showMore: false,
       isBreak: null,
@@ -60,26 +59,22 @@ export default {
     Counter
   },
   computed: {
-    ...mapGetters(["get_currentMission", "get_allMission"])
+    ...mapGetters(["get_currentMission", "get_nFinishList"])
   },
   methods: {
     updateTodoList() {
-      const allMission = this.get_allMission;
+      let nFinishList = this.get_nFinishList;
 
-      // DO NOT show the List which already finish
-      const non_finish_list = allMission.filter(
-        mission => mission.isFinish == false
-      );
-
-      // If More than 3 Mission
-      if (allMission.length > 4) {
+      // If More than 3 Mission, shiw MORE button
+      if (nFinishList.length > 4) {
         this.showMore = true;
       }
-      this.missions = non_finish_list;
+
+      this.nFinishList = nFinishList;
     },
-    changeOrder(order) {
+    changeOrder(index) {
       // Change the order in Vuex
-      this.$store.dispatch("change_order", order);
+      this.$store.dispatch("change_order", index);
 
       // Re-render the page
       this.updateTodoList();

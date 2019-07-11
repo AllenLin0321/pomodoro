@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Dashboard from './views/Dashboard';
-import Todolist from './components/Dashboard/Todolist/Todolist'
+import Todolist from './components/Dashboard/Todolist'
 import Analytics from './components/Dashboard/Analytics'
 import Ringtones from './components/Dashboard/Ringtones'
 Vue.use(Router)

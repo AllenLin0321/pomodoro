@@ -13,7 +13,8 @@ export default new Vuex.Store({
       todolist: "list",
       analytics: "insert_chart",
       ringtones: "library_music",
-      close: "close"
+      close: "close",
+      refresh: "refresh"
     }
   },
   modules: {

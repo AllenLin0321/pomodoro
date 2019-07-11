@@ -12,12 +12,7 @@
       </div>
       <!-- To do List Content -->
       <div class="nFinishList">
-        <ToDoList
-          v-for="(mission, index) in n_finish_list"
-          :key="index"
-          :content="mission.content"
-          :index="index+1"
-        />
+        <ToDoList v-for="mission in nFinishList" :key="mission.index" :list="mission" />
       </div>
     </div>
 
@@ -31,12 +26,7 @@
       </div>
       <!-- Done List Content -->
       <div class="nFinishList">
-        <ToDoList
-          v-for="(mission, index) in finish_list"
-          :key="index"
-          :content="mission.content"
-          :index="index+1"
-        />
+        <ToDoList v-for="mission in FinishList" :key="mission.index" :list="mission" />
       </div>
     </div>
   </div>
@@ -56,9 +46,8 @@ export default {
         dark: "#FF4384",
         light: "#FFEDF7"
       },
-      all_missions: [],
-      n_finish_list: [],
-      finish_list: []
+      nFinishList: [],
+      FinishList: []
     };
   },
   components: {
@@ -66,21 +55,21 @@ export default {
     ToDoList
   },
   computed: {
-    ...mapGetters(["get_allMission"])
+    ...mapGetters(["get_nFinishList", "get_finishList"]),
+    refresh() {
+      return this.$store.getters.get_refresh;
+    }
+  },
+  watch: {
+    refresh() {
+      this.updateTodoList();
+    }
   },
   methods: {
     updateTodoList() {
       // Get All Missions from vuex
-      this.all_missions = this.get_allMission;
-
-      // DO NOT show the List which already finish
-      this.n_finish_list = this.all_missions.filter(
-        mission => mission.isFinish == false
-      );
-
-      this.finish_list = this.all_missions.filter(
-        mission => mission.isFinish == true
-      );
+      this.nFinishList = this.get_nFinishList;
+      this.FinishList = this.get_finishList;
     }
   },
   created() {
