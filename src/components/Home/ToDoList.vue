@@ -1,13 +1,13 @@
 <template>
   <div class="todolist">
     <!-- CheckBox -->
-    <div class="todolist__checkBox" @click="updateState">
+    <div class="todolist__checkBox" @click="updateStatus">
       <v-icon v-if="!list.isFinish">check_box_outline_blank</v-icon>
       <v-icon v-else>check_box</v-icon>
     </div>
 
     <!-- Content -->
-    <div class="todolist__content" @click="updateState" :class="{check: list.isFinish}">
+    <div class="todolist__content" @click="updateStatus" :class="{check: list.isFinish}">
       <h1>{{ list.content }}</h1>
     </div>
     <v-spacer></v-spacer>
@@ -25,8 +25,9 @@ export default {
     return {};
   },
   methods: {
-    updateState() {
+    updateStatus() {
       this.$store.dispatch("change_state", this.list.index);
+      this.$emit('updateStatus')
     },
     changeOrder() {
       this.$emit("changeOrder", this.list.index);

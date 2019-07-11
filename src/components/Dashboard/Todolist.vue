@@ -11,8 +11,14 @@
         <v-icon class="todolist-title__arrowIcon">keyboard_arrow_down</v-icon>
       </div>
       <!-- To do List Content -->
-      <div class="nFinishList">
-        <ToDoList v-for="mission in nFinishList" :key="mission.index" :list="mission" />
+      <div class="dashboard_todolist">
+        <ToDoList
+          v-for="mission in nFinishList"
+          :key="mission.index"
+          :list="mission"
+          @changeOrder="changeOrder"
+          @updateStatus="updateTodoList"
+        />
       </div>
     </div>
 
@@ -25,8 +31,13 @@
         <v-icon class="todolist-title__arrowIcon">keyboard_arrow_down</v-icon>
       </div>
       <!-- Done List Content -->
-      <div class="nFinishList">
-        <ToDoList v-for="mission in FinishList" :key="mission.index" :list="mission" />
+      <div class="dashboard_todolist">
+        <ToDoList
+          v-for="mission in FinishList"
+          :key="mission.index"
+          :list="mission"
+          @updateStatus="updateTodoList"
+        />
       </div>
     </div>
   </div>
@@ -55,21 +66,23 @@ export default {
     ToDoList
   },
   computed: {
-    ...mapGetters(["get_nFinishList", "get_finishList"]),
-    refresh() {
-      return this.$store.getters.get_refresh;
-    }
-  },
-  watch: {
-    refresh() {
-      this.updateTodoList();
-    }
+    ...mapGetters(["get_nFinishList", "get_finishList"])
   },
   methods: {
     updateTodoList() {
       // Get All Missions from vuex
       this.nFinishList = this.get_nFinishList;
       this.FinishList = this.get_finishList;
+    },
+    changeOrder(index) {
+      // Change the order in Vuex
+      this.$store.dispatch("change_order", index);
+
+      // Re-render the page
+      this.updateTodoList();
+
+      // Go to the clock page
+      this.$router.push("/");
     }
   },
   created() {

@@ -60,7 +60,6 @@ export default {
       this.snackbar.text = text;
       this.snackbar.color = color;
       this.snackbar.timeout = timeout;
-
     }
   }
 };

@@ -1,19 +1,23 @@
 const state = {
-  refresh: false,
   missions: [{
       index: 0,
-      content: 'The first thing to do today',
+      content: 'Read a book',
       isFinish: false
     },
     {
       index: 1,
-      content: 'The 2nd thing to do today',
-      isFinish: false
+      content: 'Pay bills',
+      isFinish: true
     },
     {
       index: 2,
-      content: 'A already finish thing',
-      isFinish: true
+      content: 'Hit the gym',
+      isFinish: false
+    },
+    {
+      index: 3,
+      content: 'Buy a PS4',
+      isFinish: false
     }
   ]
 }
@@ -30,8 +34,7 @@ const getters = {
   get_finishList: (state) => {
     return state.missions.filter(
       mission => mission.isFinish == true);
-  },
-  get_refresh: (state) => state.refresh
+  }
 }
 
 // mutations
@@ -42,9 +45,6 @@ const mutations = {
   CHANGE_STATE(state, index) {
     const currentState = state.missions[index].isFinish;
     state.missions[index].isFinish = !currentState;
-  },
-  REFRESH(state) {
-    state.refresh = !state.refresh;
   }
 
 }
@@ -69,13 +69,7 @@ const actions = {
     commit
   }, index) {
     commit('CHANGE_STATE', index);
-  },
-  refresh({
-    commit
-  }) {
-    commit('REFRESH');
   }
-
 }
 
 export default {
