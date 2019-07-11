@@ -1,0 +1,9 @@
+.todolist-title {
+
+    @include titleBlock;
+
+    // Arrow Icon
+    &__arrowIcon {
+        color: $color__white !important;
+    }
+}

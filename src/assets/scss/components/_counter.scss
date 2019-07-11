@@ -1,5 +1,6 @@
 .counter {
     position: relative;
+
     &__circle {
         position: absolute;
         transform: translate(-50%, -50%);
@@ -10,5 +11,13 @@
     & i {
         font-size: 10rem;
         cursor: pointer;
+
+        &:hover {
+            font-size: 11rem;
+        }
+
+        &:active {
+            transform: translateY(.3rem);
+        }
     }
 }

@@ -1,9 +1,12 @@
 @mixin HomeBlock($side) {
     @include pageLayout();
-    @if ($side == "left") {
+
+    @if ($side=="left") {
         color: $color__indigo;
         background-color: $color__pink--light;
-    } @else {
+    }
+
+    @else {
         color: $color__white;
         background-color: $color__indigo;
     }
@@ -12,4 +15,13 @@
 @mixin pageLayout() {
     height: 100vh;
     padding: 2rem 4rem;
+}
+
+@mixin titleBlock {
+    text-transform: uppercase;
+    display: flex;
+    padding: 1rem 2rem;
+    background-color: #335A83;
+    cursor: pointer;
+    font-size: 1.3rem;
 }

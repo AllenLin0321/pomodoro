@@ -7,6 +7,9 @@
 // Reset / normalize
 @import './base/reset';
 
+// Dashboard - To-do list
+@import './components/dashboard/todolist';
+
 // Counter
 @import './components/counter';
 
@@ -18,6 +21,8 @@
 
 // todolist
 @import './components/todolist';
+
+@import './components/dashboard/nFinishList';
 
 // Navigation
 @import './layout/navigation';

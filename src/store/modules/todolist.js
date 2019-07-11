@@ -6,6 +6,10 @@ const state = {
     {
       content: 'The 2nd thing to do today',
       isFinish: false
+    },
+    {
+      content: 'A already finish thing',
+      isFinish: true
     }
   ]
 }

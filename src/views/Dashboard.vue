@@ -15,15 +15,7 @@
 
       <!-- Footer -->
       <v-flex xs2 class="dashboard__footer">
-        <nav class="navigation">
-          <div class="navigation__icon">
-            <v-icon medium @click="toPage(`/`)">{{icons.close}}</v-icon>
-          </div>
-          <v-spacer></v-spacer>
-          <div class="navigation__title">
-            <h1>pomodoro</h1>
-          </div>
-        </nav>
+        <Footer :icons="icons" />
       </v-flex>
     </v-layout>
   </v-container>
@@ -31,6 +23,7 @@
 
 <script>
 import Nav from "../components/Dashboard/Nav";
+import Footer from "../components/Dashboard/Footer";
 export default {
   data() {
     return {
@@ -38,13 +31,10 @@ export default {
     };
   },
   components: {
-    Nav
+    Nav,
+    Footer
   },
-  methods: {
-    toPage(pageName) {
-      this.$router.push(pageName);
-    }
-  },
+
   created() {
     this.icons = this.$store.getters.getIcons;
   }
