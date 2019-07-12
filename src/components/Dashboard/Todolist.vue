@@ -8,7 +8,7 @@
       <div class="todolist-title">
         <h2 class="todolist-title__content">to-do</h2>
         <v-spacer></v-spacer>
-        <v-icon class="todolist-title__arrowIcon">keyboard_arrow_down</v-icon>
+        <!-- <v-icon class="todolist-title__arrowIcon">keyboard_arrow_down</v-icon> -->
       </div>
       <!-- To do List Content -->
       <div class="dashboard_todolist">
@@ -28,7 +28,7 @@
       <div class="todolist-title">
         <h2 class="todolist-title__content">done</h2>
         <v-spacer></v-spacer>
-        <v-icon class="todolist-title__arrowIcon">keyboard_arrow_down</v-icon>
+        <!-- <v-icon class="todolist-title__arrowIcon">keyboard_arrow_down</v-icon> -->
       </div>
       <!-- Done List Content -->
       <div class="dashboard_todolist">

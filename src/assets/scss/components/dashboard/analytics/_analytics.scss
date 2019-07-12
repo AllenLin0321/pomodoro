@@ -1,26 +1,20 @@
-.analytics {
-    padding: 0;
-    margin-top: 2rem;
+.analytics-data {
+    height: 100% !important;
+    padding: 1rem 0 !important;
+    text-transform: uppercase;
 
     &__title {
+        font-size: 2.5rem;
+    }
+
+    &__number {
+        color: $color__pink;
+        font-size: 8rem;
+    }
+
+    &__unit {
+        color: $color__white;
         font-size: 2rem;
+        opacity: .4;
     }
-
-    &-data{
-        margin-top: 1rem;
-
-        &__number {
-            color: $color__pink;
-            font-size: 7rem;
-        }
-
-        &__unit {
-            color: $color__white;
-            opacity: .3;
-            font-size: 2.5rem;
-        }
-    }
-}
-.test {
-    height: 100%;
 }
